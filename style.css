@@ -42,11 +42,11 @@ body {
   }
   
   /* Background colors for time zones */
-  .timeZone:nth-child(odd) {
+  .timeZone:nth-child(even) {
     background-color: #e6f7ff;
   }
   
-  .timeZone:nth-child(even) {
+  .timeZone:nth-child(odd) {
     background-color: #fff3ed;
   }
 
@@ -66,4 +66,10 @@ body {
     height: 100px;
   }
 
-  
+  .day {
+    margin-bottom: 10px;
+  }
+
+  .time {
+    margin-top: 0;
+  }
