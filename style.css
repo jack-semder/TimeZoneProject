@@ -53,31 +53,31 @@ body {
     position: absolute; /* Add position absolute to the image */
     top: 10px; /* Adjust the positioning based on your preference */
     right: 10px; /* Adjust the positioning based on your preference */
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
   }
   
   .timezone-image1 {
     position: absolute; /* Add position absolute to the image */
-    top: 100px; /* Adjust the positioning based on your preference */
+    top: 200px; /* Adjust the positioning based on your preference */
     right: 10px; /* Adjust the positioning based on your preference */
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
   }
   
   .timezone-image2 {
     position: absolute; /* Add position absolute to the image */
-    top: 200px; /* Adjust the positioning based on your preference */
+    top: 400px; /* Adjust the positioning based on your preference */
     right: 10px; /* Adjust the positioning based on your preference */
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
   }
   
   .timezone-image3 {
     position: absolute; /* Add position absolute to the image */
-    top: 300px; /* Adjust the positioning based on your preference */
+    top: 600px; /* Adjust the positioning based on your preference */
     right: 10px; /* Adjust the positioning based on your preference */
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
   }
   
