@@ -22,8 +22,8 @@ const timeZones = [
   { label: 'India', timeZone: 'Asia/Kolkata', image: 'pngwing.com(3).png' },
   { label: 'London', timeZone: 'Europe/London', image: 'pngwing.com(2).png' },
   { label: 'Chicago', timeZone: 'America/Chicago', image: 'pngwing.com.png' },
-  { label: 'Austin', timeZone: 'America/Chicago', image: 'pngwing.com.png' },
-  { label: 'Pittsburgh', timeZone: 'America/New_York', image: 'pngwing.com.png' }
+  { label: 'Toronto', timeZone: 'America/Toronto', image: 'pngwing.com(4).png' },
+  { label: 'Hawaii', timeZone: 'Pacific/Honolulu', image: 'pngwing.com.png' }
 ];
 
 const timeZonesContainer = document.getElementById('timeZones');
