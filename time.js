@@ -1,43 +1,68 @@
-// Create a new Date object
-const now = new Date();
 
-// Time zone options
-const timeZoneOptions = {
-  timeZone: undefined,
-  hour12: false,
-  hour: 'numeric',
-  minute: 'numeric',
-  second: 'numeric',
-};
+    // Function to update the time in the specified time zone
+    function updateTime(timeZoneElement, timeZone) {
+      const now = new Date();
+      const timeZoneOptions = {
+        timeZone: timeZone,
+        hour12: false,
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+      };
+      const time = now.toLocaleString('en-US', timeZoneOptions);
+      timeZoneElement.textContent = time;
+    }
 
-// Get the current time in New York (Eastern Daylight Time - GMT-4:00)
-timeZoneOptions.timeZone = 'America/New_York';
-const nyTime = now.toLocaleString('en-US', timeZoneOptions);
+    // Array of time zones
+    const timeZones = [
+    { label: 'Calabasas', timeZone: 'America/Los_Angeles' },
+    { label: 'Tempe', timeZone: 'America/Phoenix' },
+    { label: 'New York', timeZone: 'America/New_York' },
+    { label: 'Islamabad', timeZone: 'Asia/Karachi' },
+    { label: 'India', timeZone: 'Asia/Kolkata' },
+    { label: 'London', timeZone: 'Europe/London' },
+    { label: 'Chicago', timeZone: 'America/Chicago' },
+    { label: 'Austin', timeZone: 'America/Chicago' },
+    { label: 'Pittsburgh', timeZone: 'America/New_York' }
+    ];
 
-// Get the current time in Pakistan (Pakistan Standard Time - GMT+5:00)
-timeZoneOptions.timeZone = 'Asia/Karachi';
-const pakistanTime = now.toLocaleString('en-US', timeZoneOptions);
+    const timeZonesContainer = document.getElementById('timeZones');
 
-// Get the current time in India (India Standard Time - GMT+5:30)
-timeZoneOptions.timeZone = 'Asia/Kolkata';
-const indiaTime = now.toLocaleString('en-US', timeZoneOptions);
+    // Create elements for each time zone
+    timeZones.forEach(({ label, timeZone }, index) => {
+      const timeZoneElement = document.createElement('div');
+      timeZoneElement.className = 'timeZone';
+      const heading = document.createElement('h2');
+      heading.textContent = label;
+      timeZoneElement.appendChild(heading);
+      const time = document.createElement('p');
+      timeZoneElement.appendChild(time);
+      timeZonesContainer.appendChild(timeZoneElement);
+      updateTime(time, timeZone);
 
-// Get the current time in Chicago (Central Daylight Time - GMT-5:00)
-timeZoneOptions.timeZone = 'America/Chicago';
-const chicagoTime = now.toLocaleString('en-US', timeZoneOptions);
+      // Add background color based on index
+      if (index % 2 === 0) {
+        timeZoneElement.classList.add('even');
+      } else {
+        timeZoneElement.classList.add('odd');
+      }
+    });
 
-// Get the current time in Chicago (Central Daylight Time - GMT-5:00)
-timeZoneOptions.timeZone = 'America/Los_Angeles';
-const laTime = now.toLocaleString('en-US', timeZoneOptions);
+    // Function to update all time zones
+    // function updateAllTimeZones() {
+    //   timeZones.forEach(({ label, timeZone }) => {
+    //     const timeZoneElement = document.querySelector(`.timeZone h2:contains(${label})`).nextElementSibling;
+    //     updateTime(timeZoneElement, timeZone);
+    //   });
+    // }
 
-// Get the current time in Chicago (Central Daylight Time - GMT-5:00)
-timeZoneOptions.timeZone = 'America/Phoenix';
-const tempeTime = now.toLocaleString('en-US', timeZoneOptions);
+    function updateAllTimeZones() {
+  timeZones.forEach(({ label, timeZone }) => {
+    const timeZoneElement = Array.from(document.querySelectorAll('.timeZone h2')).find(h2 => h2.textContent === label).nextElementSibling;
+    updateTime(timeZoneElement, timeZone);
+  });
+}
 
-// Display the current time in each time zone
-console.log('Current time in New York:', nyTime);
-console.log('Current time in Pakistan:', pakistanTime);
-console.log('Current time in India:', indiaTime);
-console.log('Current time in Chicago:', chicagoTime);
-console.log('Current time in Calabasas:', laTime);
-console.log('Current time in Tempe:', tempeTime);
+
+    // Schedule periodic updates every second
+    setInterval(updateAllTimeZones, 1000);
