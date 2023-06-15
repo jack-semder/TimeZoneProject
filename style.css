@@ -20,12 +20,13 @@ body {
     gap: 20px;
     justify-content: center;
     align-items: center;
-    max-width: 900px; /* Added maximum width to limit container size */
-    width: 100%; /* Added width to ensure container fills available space */
-    margin: 0 auto; /* Added auto margin to horizontally center the container */
   }
   
   .timeZone {
+    display: flex; /* Add flex display to the time zone elements */
+    flex-direction: column; /* Stack text and time vertically */
+    justify-content: flex-start; /* Align text and time to the right */
+    align-items: flex-end; /* Align text and time to the right */
     width: 300px;
     padding: 20px;
     margin: 20px;
