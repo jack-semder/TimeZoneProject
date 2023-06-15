@@ -36,16 +36,16 @@ timeZones.forEach(({ label, timeZone, image }, index) => {
   heading.textContent = label;
   timeZoneElement.appendChild(heading);
 
+  const time = document.createElement('p');
+  timeZoneElement.appendChild(time);
+  timeZonesContainer.appendChild(timeZoneElement);
+  updateTime(time, timeZone);
+
   const imgPath = `${image}`;
   const imageElement = document.createElement('img');
   imageElement.src = imgPath;
   imageElement.className = 'timeZoneImage';
   timeZoneElement.appendChild(imageElement);
-
-  const time = document.createElement('p');
-  timeZoneElement.appendChild(time);
-  timeZonesContainer.appendChild(timeZoneElement);
-  updateTime(time, timeZone);
 
   // Add background color based on index
   if (index % 2 === 0) {
@@ -54,6 +54,8 @@ timeZones.forEach(({ label, timeZone, image }, index) => {
     timeZoneElement.classList.add('odd');
   }
 });
+
+
 
     function updateAllTimeZones() {
   timeZones.forEach(({ label, timeZone }) => {
