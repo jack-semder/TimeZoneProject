@@ -1,21 +1,17 @@
-
     // Function to update the time in the specified time zone
-    function updateTime(timeZoneElement, dayElement, timeZone) {
+    function updateTime(timeZoneElement, timeZone) {
       const now = new Date();
       const timeZoneOptions = {
         timeZone: timeZone,
+        weekday: 'long',
         hour12: true,
         hour: 'numeric',
         minute: 'numeric',
         second: 'numeric',
       };
-      const day = now.toLocaleString('en-US', { weekday: 'long' });
       const time = now.toLocaleString('en-US', timeZoneOptions);
-      dayElement.textContent = day;
       timeZoneElement.textContent = time;
     }
-    
-    
 
 // Array of time zones
 const timeZones = [
@@ -40,14 +36,10 @@ timeZones.forEach(({ label, timeZone, image }, index) => {
   heading.textContent = label;
   timeZoneElement.appendChild(heading);
 
-  const dayElement = document.createElement('p');
-  dayElement.className = 'day';
-  const timeElement = document.createElement('p');
-  timeElement.className = 'time';
-  timeZoneElement.appendChild(dayElement);
-  timeZoneElement.appendChild(timeElement);
+  const time = document.createElement('p');
+  timeZoneElement.appendChild(time);
   timeZonesContainer.appendChild(timeZoneElement);
-  updateTime(timeElement, dayElement, timeZone);
+  updateTime(time, timeZone);
 
   const imgPath = `${image}`;
   const imageElement = document.createElement('img');
@@ -61,12 +53,11 @@ timeZones.forEach(({ label, timeZone, image }, index) => {
   } else {
     timeZoneElement.classList.add('odd');
   }
-  console.log(dayElement)
 });
 
     function updateAllTimeZones() {
   timeZones.forEach(({ label, timeZone }) => {
-    const timeZoneElement = Array.from(document.querySelectorAll('.timeZone h2')).find(h2 => h2.textContent === label).nextElementSibling.nextElementSibling;
+    const timeZoneElement = Array.from(document.querySelectorAll('.timeZone h2')).find(h2 => h2.textContent === label).nextElementSibling;
     updateTime(timeZoneElement, timeZone);
   });
 }
@@ -74,5 +65,3 @@ timeZones.forEach(({ label, timeZone, image }, index) => {
 
     // Schedule periodic updates every second
     setInterval(updateAllTimeZones, 1000);
-
- 
