@@ -13,48 +13,47 @@
       timeZoneElement.textContent = time;
     }
 
-    // Array of time zones
-    const timeZones = [
-    { label: 'Calabasas', timeZone: 'America/Los_Angeles' },
-    { label: 'Tempe', timeZone: 'America/Phoenix' },
-    { label: 'New York', timeZone: 'America/New_York' },
-    { label: 'Islamabad', timeZone: 'Asia/Karachi' },
-    { label: 'India', timeZone: 'Asia/Kolkata' },
-    { label: 'London', timeZone: 'Europe/London' },
-    { label: 'Chicago', timeZone: 'America/Chicago' },
-    { label: 'Austin', timeZone: 'America/Chicago' },
-    { label: 'Pittsburgh', timeZone: 'America/New_York' }
-    ];
+// Array of time zones
+const timeZones = [
+  { label: 'Calabasas', timeZone: 'America/Los_Angeles', image: 'pngwing.com.png' },
+  { label: 'Tempe', timeZone: 'America/Phoenix', image: 'pngwing.com.png' },
+  { label: 'New York', timeZone: 'America/New_York', image: 'pngwing.com.png' },
+  { label: 'Islamabad', timeZone: 'Asia/Karachi', image: 'pngwing.com(1).png' },
+  { label: 'India', timeZone: 'Asia/Kolkata', image: 'pngwing.com(3).png' },
+  { label: 'London', timeZone: 'Europe/London', image: 'pngwing.com(2).png' },
+  { label: 'Chicago', timeZone: 'America/Chicago', image: 'pngwing.com.png' },
+  { label: 'Austin', timeZone: 'America/Chicago', image: 'pngwing.com.png' },
+  { label: 'Pittsburgh', timeZone: 'America/New_York', image: 'pngwing.com.png' }
+];
 
-    const timeZonesContainer = document.getElementById('timeZones');
+const timeZonesContainer = document.getElementById('timeZones');
 
-    // Create elements for each time zone
-    timeZones.forEach(({ label, timeZone }, index) => {
-      const timeZoneElement = document.createElement('div');
-      timeZoneElement.className = 'timeZone';
-      const heading = document.createElement('h2');
-      heading.textContent = label;
-      timeZoneElement.appendChild(heading);
-      const time = document.createElement('p');
-      timeZoneElement.appendChild(time);
-      timeZonesContainer.appendChild(timeZoneElement);
-      updateTime(time, timeZone);
+// Create elements for each time zone
+timeZones.forEach(({ label, timeZone, image }, index) => {
+  const timeZoneElement = document.createElement('div');
+  timeZoneElement.className = 'timeZone';
+  const heading = document.createElement('h2');
+  heading.textContent = label;
+  timeZoneElement.appendChild(heading);
 
-      // Add background color based on index
-      if (index % 2 === 0) {
-        timeZoneElement.classList.add('even');
-      } else {
-        timeZoneElement.classList.add('odd');
-      }
-    });
+  const imgPath = `${image}`;
+  const imageElement = document.createElement('img');
+  imageElement.src = imgPath;
+  imageElement.className = 'timeZoneImage';
+  timeZoneElement.appendChild(imageElement);
 
-    // Function to update all time zones
-    // function updateAllTimeZones() {
-    //   timeZones.forEach(({ label, timeZone }) => {
-    //     const timeZoneElement = document.querySelector(`.timeZone h2:contains(${label})`).nextElementSibling;
-    //     updateTime(timeZoneElement, timeZone);
-    //   });
-    // }
+  const time = document.createElement('p');
+  timeZoneElement.appendChild(time);
+  timeZonesContainer.appendChild(timeZoneElement);
+  updateTime(time, timeZone);
+
+  // Add background color based on index
+  if (index % 2 === 0) {
+    timeZoneElement.classList.add('even');
+  } else {
+    timeZoneElement.classList.add('odd');
+  }
+});
 
     function updateAllTimeZones() {
   timeZones.forEach(({ label, timeZone }) => {

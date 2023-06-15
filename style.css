@@ -23,6 +23,7 @@ body {
   }
   
   .timeZone {
+    position: relative;
     display: flex; /* Add flex display to the time zone elements */
     flex-direction: column; /* Stack text and time vertically */
     justify-content: flex-start; /* Align text and time to the right */
@@ -47,6 +48,14 @@ body {
   
   .timeZone:nth-child(even) {
     background-color: #fff3ed;
+  }
+
+  .timeZoneImage {
+    position: absolute; /* Position the image absolutely within the timeZone container */
+      top: 10px; /* Position the image at the top */
+      left: 15px; /* Position the image at the left */
+      width: 100px; /* Adjust the width to your desired size */
+      height: auto;
   }
 
   .timezone-image0 {
