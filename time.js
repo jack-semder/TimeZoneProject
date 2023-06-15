@@ -3,7 +3,6 @@
       const now = new Date();
       const timeZoneOptions = {
         timeZone: timeZone,
-        weekday: 'long',
         hour12: true,
         hour: 'numeric',
         minute: 'numeric',
