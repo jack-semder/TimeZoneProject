@@ -27,13 +27,13 @@ body {
     flex-direction: column; /* Stack text and time vertically */
     justify-content: flex-start; /* Align text and time to the right */
     align-items: flex-end; /* Align text and time to the right */
-    width: 300px;
+    width: 400px;
     padding: 20px;
     margin: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: #f9f9f9;
-    font-size: 20px;
+    font-size: 40px;
   }
   
   .timeZone h2 {
