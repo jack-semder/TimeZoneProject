@@ -46,7 +46,7 @@
     }
     
     .timeZone:nth-child(even) {
-      background-color: #f7f6ff;
+      background-color: #fff3ed;
     }
   </style>
 </head>
@@ -72,12 +72,15 @@
 
     // Array of time zones
     const timeZones = [
-      { label: 'New York', timeZone: 'America/New_York' },
-      { label: 'Pakistan', timeZone: 'Asia/Karachi' },
-      { label: 'India', timeZone: 'Asia/Kolkata' },
-      { label: 'Chicago', timeZone: 'America/Chicago' },
-      { label: 'California', timeZone: 'America/Los_Angeles' },
-      { label: 'Tempe, Arizona', timeZone: 'America/Phoenix' }
+    { label: 'Calabasas', timeZone: 'America/Los_Angeles' },
+    { label: 'Tempe', timeZone: 'America/Phoenix' },
+    { label: 'New York', timeZone: 'America/New_York' },
+    { label: 'Islamabad', timeZone: 'Asia/Karachi' },
+    { label: 'India', timeZone: 'Asia/Kolkata' },
+    { label: 'London', timeZone: 'Europe/London' },
+    { label: 'Chicago', timeZone: 'America/Chicago' },
+    { label: 'Austin', timeZone: 'America/Chicago' },
+    { label: 'Pittsburgh', timeZone: 'America/New_York' }
     ];
 
     const timeZonesContainer = document.getElementById('timeZones');
@@ -103,12 +106,20 @@
     });
 
     // Function to update all time zones
+    // function updateAllTimeZones() {
+    //   timeZones.forEach(({ label, timeZone }) => {
+    //     const timeZoneElement = document.querySelector(`.timeZone h2:contains(${label})`).nextElementSibling;
+    //     updateTime(timeZoneElement, timeZone);
+    //   });
+    // }
+
     function updateAllTimeZones() {
-      timeZones.forEach(({ label, timeZone }) => {
-        const timeZoneElement = document.querySelector(`.timeZone h2:contains(${label})`).nextElementSibling;
-        updateTime(timeZoneElement, timeZone);
-      });
-    }
+  timeZones.forEach(({ label, timeZone }) => {
+    const timeZoneElement = Array.from(document.querySelectorAll('.timeZone h2')).find(h2 => h2.textContent === label).nextElementSibling;
+    updateTime(timeZoneElement, timeZone);
+  });
+}
+
 
     // Schedule periodic updates every second
     setInterval(updateAllTimeZones, 1000);
