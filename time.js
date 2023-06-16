@@ -30,7 +30,7 @@ const timeZonesContainer = document.getElementById('timeZones');
 // Create elements for each time zone
 timeZones.forEach(({ label, timeZone, image }, index) => {
   const timeZoneElement = document.createElement('div');
-  timeZoneElement.className = 'timeZone';
+  timeZoneElement.className = 'timeZoneBox';
   const heading = document.createElement('h2');
   heading.textContent = label;
   timeZoneElement.appendChild(heading);
