@@ -56,7 +56,7 @@ timeZones.forEach(({ label, timeZone, image }, index) => {
 
     function updateAllTimeZones() {
   timeZones.forEach(({ label, timeZone }) => {
-    const timeZoneElement = Array.from(document.querySelectorAll('.timeZone h2')).find(h2 => h2.textContent === label).nextElementSibling;
+    const timeZoneElement = Array.from(document.querySelectorAll('.timeZoneBox h2')).find(h2 => h2.textContent === label).nextElementSibling;
     updateTime(timeZoneElement, timeZone);
   });
 }
