@@ -22,7 +22,7 @@ body {
     align-items: center;
   }
   
-  .timeZone {
+  .timeZoneBox {
     position: relative;
     display: flex; /* Add flex display to the time zone elements */
     flex-direction: column; /* Stack text and time vertically */
@@ -37,16 +37,16 @@ body {
     font-size: 40px;
   }
   
-  .timeZone h2 {
+  .timeZoneBox h2 {
     margin-top: 0;
   }
   
   /* Background colors for time zones */
-  .timeZone:nth-child(even) {
+  .timeZoneBox:nth-child(even) {
     background-color: #e6f7ff;
   }
   
-  .timeZone:nth-child(odd) {
+  .timeZoneBox:nth-child(odd) {
     background-color: #fff3ed;
   }
 
