@@ -14,11 +14,17 @@
 
     function updateDay(dayElement, timeZone) {
       const now = new Date();
+      // Testing tomorrow
+      // const tomorrow = new Date();
+      // tomorrow.setDate(tomorrow.getDate() + 1);
+      // tomorrow.setHours(tomorrow.getHours() + 1);
       const timeZoneOptions = {
         timeZone: timeZone,
         weekday: 'long',
       };
       const day = now.toLocaleString('en-US', timeZoneOptions);
+      // Testing tomorrow
+      // const day = tomorrow.toLocaleString('en-US', timeZoneOptions);
       dayElement.textContent = day;
     }
 
