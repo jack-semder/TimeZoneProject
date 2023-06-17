@@ -69,9 +69,6 @@ function createTimeZoneBox({ label, timeZone, image }, index) {
   return timeZoneElement;
 }
 
-
-
-
 // Create elements for each time zone
 timeZones.forEach((timeZone, index) => {
   const timeZoneBox = createTimeZoneBox(timeZone, index);
