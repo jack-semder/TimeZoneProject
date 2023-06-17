@@ -12,6 +12,15 @@
       timeZoneElement.textContent = time;
     }
 
+    function updateDay(dayElement, timeZone) {
+      const now = new Date();
+      const timeZoneOptions = {
+        timeZone: timeZone,
+        weekday: 'long',
+      };
+      const day = now.toLocaleString('en-US', timeZoneOptions);
+    }
+
 // Array of time zones
 const timeZones = [
   { label: 'Calabasas', timeZone: 'America/Los_Angeles', image: 'pngwing.com.png' },
@@ -35,6 +44,11 @@ timeZones.forEach(({ label, timeZone, image }, index) => {
   heading.textContent = label;
   timeZoneElement.appendChild(heading);
 
+  const day = document.createElement('p');
+  timeZoneElement.appendChild(day);
+  timeZonesContainer.appendChild(timeZoneElement);
+  updateDay(day, timeZone);
+
   const time = document.createElement('p');
   timeZoneElement.appendChild(time);
   timeZonesContainer.appendChild(timeZoneElement);
@@ -56,7 +70,7 @@ timeZones.forEach(({ label, timeZone, image }, index) => {
 
     function updateAllTimeZones() {
   timeZones.forEach(({ label, timeZone }) => {
-    const timeZoneElement = Array.from(document.querySelectorAll('.timeZoneBox h2')).find(h2 => h2.textContent === label).nextElementSibling;
+    const timeZoneElement = Array.from(document.querySelectorAll('.timeZoneBox h2')).find(h2 => h2.textContent === label).nextElementSibling.nextElementSibling;
     updateTime(timeZoneElement, timeZone);
   });
 }
