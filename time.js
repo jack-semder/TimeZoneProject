@@ -21,6 +21,7 @@ function updateTimeDateAndDay(timeElement, dateElement, dayElement, timeZone) {
     timeZone: timeZone,
     month: 'long',
     day: 'numeric',
+    year: 'numeric',
   };
 
   timeElement.textContent = now.toLocaleString('en-US', timeOptions);

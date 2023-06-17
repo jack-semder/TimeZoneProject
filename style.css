@@ -66,10 +66,10 @@ body {
     height: 100px;
   }
 
-  .day {
-    margin-bottom: 10px;
+  .timeZoneBox p {
+    margin: 0; /* Remove default margins from the paragraphs */
   }
-
-  .time {
-    margin-top: 0;
+  
+  .timeZoneBox p + p {
+    margin-top: 5px; /* Add some top margin to all paragraphs that are immediately following another paragraph */
   }
