@@ -41,14 +41,14 @@ body {
     margin-top: 0;
   }
   
-  /* Background colors for time zones */
+  /* Background colors for time zones
   .timeZoneBox:nth-child(even) {
     background-color: #e6f7ff;
   }
   
   .timeZoneBox:nth-child(odd) {
     background-color: #fff3ed;
-  }
+  } */
 
   .timeZoneImage {
     position: absolute; /* Position the image absolutely within the timeZone container */

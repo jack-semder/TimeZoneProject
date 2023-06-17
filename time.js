@@ -60,10 +60,10 @@ function createTimeZoneBox({ label, timeZone, image }, index) {
 
   const currentTime = updateTimeDateAndDay(time, date, day, timeZone);
   if (currentTime >= 7 && currentTime < 16) {
-    timeZoneElement.style.backgroundColor = "white";
+    timeZoneElement.style.backgroundColor = "#fff3ed";
     timeZoneElement.style.color = "black";
   } else {
-    timeZoneElement.style.backgroundColor = "black";
+    timeZoneElement.style.backgroundColor = "#2B3A55";
     timeZoneElement.style.color = "white";
   }
   return timeZoneElement;
