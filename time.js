@@ -1,6 +1,8 @@
-// Function to update the time and day in the specified time zone
-function updateTimeAndDay(timeElement, dayElement, timeZone) {
+// Function to update the time, date, and day in the specified time zone
+function updateTimeDateAndDay(timeElement, dateElement, dayElement, timeZone) {
   const now = new Date();
+  // testing one hour ahead
+  // now.setHours(now.getHours() + 1);
   
   const timeOptions = {
     timeZone: timeZone,
@@ -14,8 +16,15 @@ function updateTimeAndDay(timeElement, dayElement, timeZone) {
     timeZone: timeZone,
     weekday: 'long',
   };
+  
+  const dateOptions = {
+    timeZone: timeZone,
+    month: 'long',
+    day: 'numeric',
+  };
 
   timeElement.textContent = now.toLocaleString('en-US', timeOptions);
+  dateElement.textContent = now.toLocaleString('en-US', dateOptions);
   dayElement.textContent = now.toLocaleString('en-US', dayOptions);
 }
 
@@ -28,9 +37,10 @@ function createTimeZoneBox({ label, timeZone, image }, index) {
   heading.textContent = label;
   timeZoneElement.appendChild(heading);
 
+  const date = document.createElement('p');
   const day = document.createElement('p');
   const time = document.createElement('p');
-  timeZoneElement.append(day, time);
+  timeZoneElement.append(date, day, time);
 
   const imageElement = document.createElement('img');
   imageElement.src = image;
@@ -39,7 +49,7 @@ function createTimeZoneBox({ label, timeZone, image }, index) {
 
   timeZoneElement.classList.add(index % 2 === 0 ? 'even' : 'odd');
 
-  updateTimeAndDay(time, day, timeZone);
+  updateTimeDateAndDay(time, date, day, timeZone);
 
   return timeZoneElement;
 }
@@ -71,10 +81,11 @@ function updateAllTimeZones() {
   timeZoneBoxes.forEach(box => {
     const label = box.querySelector('h2').textContent;
     const { timeZone } = timeZones.find(tz => tz.label === label);
-    const dayElement = box.querySelector('p');
-    const timeZoneElement = box.querySelectorAll('p')[1];
+    const dateElement = box.querySelector('p');
+    const dayElement = box.querySelectorAll('p')[1];
+    const timeZoneElement = box.querySelectorAll('p')[2];
 
-    updateTimeAndDay(timeZoneElement, dayElement, timeZone);
+    updateTimeDateAndDay(timeZoneElement, dateElement, dayElement, timeZone);
   });
 }
 
