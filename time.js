@@ -19,6 +19,7 @@
         weekday: 'long',
       };
       const day = now.toLocaleString('en-US', timeZoneOptions);
+      dayElement.textContent = day;
     }
 
 // Array of time zones
@@ -70,8 +71,10 @@ timeZones.forEach(({ label, timeZone, image }, index) => {
 
     function updateAllTimeZones() {
   timeZones.forEach(({ label, timeZone }) => {
+    const dayElement = Array.from(document.querySelectorAll('.timeZoneBox h2')).find(h2 => h2.textContent === label).nextElementSibling;
     const timeZoneElement = Array.from(document.querySelectorAll('.timeZoneBox h2')).find(h2 => h2.textContent === label).nextElementSibling.nextElementSibling;
     updateTime(timeZoneElement, timeZone);
+    updateDay(dayElement, timeZone)
   });
 }
 
