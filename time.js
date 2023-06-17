@@ -3,12 +3,12 @@ const timeZones = [
   { label: 'Calabasas', timeZone: 'America/Los_Angeles', image: 'pngwing.com.png' },
   { label: 'Tempe', timeZone: 'America/Phoenix', image: 'pngwing.com.png' },
   { label: 'New York', timeZone: 'America/New_York', image: 'pngwing.com.png' },
+  { label: 'London', timeZone: 'Europe/London', image: 'pngwing.com(2).png' },
   { label: 'Islamabad', timeZone: 'Asia/Karachi', image: 'pngwing.com(1).png' },
   { label: 'India', timeZone: 'Asia/Kolkata', image: 'pngwing.com(3).png' },
-  { label: 'London', timeZone: 'Europe/London', image: 'pngwing.com(2).png' },
+  { label: 'Hawaii', timeZone: 'Pacific/Honolulu', image: 'pngwing.com.png' },
   { label: 'Chicago', timeZone: 'America/Chicago', image: 'pngwing.com.png' },
   { label: 'Toronto', timeZone: 'America/Toronto', image: 'pngwing.com(4).png' },
-  { label: 'Hawaii', timeZone: 'Pacific/Honolulu', image: 'pngwing.com.png' }
 ];
 
 const timeZonesContainer = document.getElementById('timeZones');
