@@ -1,60 +1,3 @@
-// Function to update the time, date, and day in the specified time zone
-function updateTimeDateAndDay(timeElement, dateElement, dayElement, timeZone) {
-  const now = new Date();
-  // testing one hour ahead
-  // now.setHours(now.getHours() + 1);
-  
-  const timeOptions = {
-    timeZone: timeZone,
-    hour12: true,
-    hour: 'numeric',
-    minute: 'numeric',
-    second: 'numeric',
-  };
-
-  const dayOptions = {
-    timeZone: timeZone,
-    weekday: 'long',
-  };
-  
-  const dateOptions = {
-    timeZone: timeZone,
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  };
-
-  timeElement.textContent = now.toLocaleString('en-US', timeOptions);
-  dateElement.textContent = now.toLocaleString('en-US', dateOptions);
-  dayElement.textContent = now.toLocaleString('en-US', dayOptions);
-}
-
-// Function to create and return a new timezone box
-function createTimeZoneBox({ label, timeZone, image }, index) {
-  const timeZoneElement = document.createElement('div');
-  timeZoneElement.className = 'timeZoneBox';
-
-  const heading = document.createElement('h2');
-  heading.textContent = label;
-  timeZoneElement.appendChild(heading);
-
-  const date = document.createElement('p');
-  const day = document.createElement('p');
-  const time = document.createElement('p');
-  timeZoneElement.append(date, day, time);
-
-  const imageElement = document.createElement('img');
-  imageElement.src = image;
-  imageElement.className = 'timeZoneImage';
-  timeZoneElement.appendChild(imageElement);
-
-  timeZoneElement.classList.add(index % 2 === 0 ? 'even' : 'odd');
-
-  updateTimeDateAndDay(time, date, day, timeZone);
-
-  return timeZoneElement;
-}
-
 // Array of time zones
 const timeZones = [
   { label: 'Calabasas', timeZone: 'America/Los_Angeles', image: 'pngwing.com.png' },
@@ -69,6 +12,65 @@ const timeZones = [
 ];
 
 const timeZonesContainer = document.getElementById('timeZones');
+
+// Update the time, date, and day function
+function updateTimeDateAndDay(timeElement, dateElement, dayElement, timeZone) {
+  const now = new Date();
+  const timeOptions = {
+    timeZone: timeZone,
+    hour12: true,
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+  };
+  const dayOptions = {
+    timeZone: timeZone,
+    weekday: 'long',
+  };
+  const dateOptions = {
+    timeZone: timeZone,
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  };
+
+  timeElement.textContent = now.toLocaleString('en-US', timeOptions);
+  dateElement.textContent = now.toLocaleString('en-US', dateOptions);
+  dayElement.textContent = now.toLocaleString('en-US', dayOptions);
+
+  return now.toLocaleString('en-US', { timeZone, hour: 'numeric', hour12: false });
+}
+
+// Create timezone box function
+function createTimeZoneBox({ label, timeZone, image }, index) {
+  const timeZoneElement = document.createElement('div');
+  timeZoneElement.className = 'timeZoneBox';
+  const heading = document.createElement('h2');
+  heading.textContent = label;
+  timeZoneElement.appendChild(heading);
+  const date = document.createElement('p');
+  const day = document.createElement('p');
+  const time = document.createElement('p');
+  timeZoneElement.append(date, day, time);
+  const imageElement = document.createElement('img');
+  imageElement.src = image;
+  imageElement.className = 'timeZoneImage';
+  timeZoneElement.appendChild(imageElement);
+  timeZoneElement.classList.add(index % 2 === 0 ? 'even' : 'odd');
+
+  const currentTime = updateTimeDateAndDay(time, date, day, timeZone);
+  if (currentTime >= 7 && currentTime < 16) {
+    timeZoneElement.style.backgroundColor = "white";
+    timeZoneElement.style.color = "black";
+  } else {
+    timeZoneElement.style.backgroundColor = "black";
+    timeZoneElement.style.color = "white";
+  }
+  return timeZoneElement;
+}
+
+
+
 
 // Create elements for each time zone
 timeZones.forEach((timeZone, index) => {
