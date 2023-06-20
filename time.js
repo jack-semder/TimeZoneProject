@@ -3,12 +3,12 @@ const timeZones = [
   { label: 'Calabasas', timeZone: 'America/Los_Angeles', image: 'pngwing.com.png' },
   { label: 'Tempe', timeZone: 'America/Phoenix', image: 'pngwing.com.png' },
   { label: 'New York', timeZone: 'America/New_York', image: 'pngwing.com.png' },
-  { label: 'London', timeZone: 'Europe/London', image: 'pngwing.com(2).png' },
   { label: 'Islamabad', timeZone: 'Asia/Karachi', image: 'pngwing.com(1).png' },
   { label: 'India', timeZone: 'Asia/Kolkata', image: 'pngwing.com(3).png' },
-  { label: 'Hawaii', timeZone: 'Pacific/Honolulu', image: 'pngwing.com.png' },
+  { label: 'London', timeZone: 'Europe/London', image: 'pngwing.com(2).png' },
   { label: 'Chicago', timeZone: 'America/Chicago', image: 'pngwing.com.png' },
   { label: 'Toronto', timeZone: 'America/Toronto', image: 'pngwing.com(4).png' },
+  { label: 'Hawaii', timeZone: 'Pacific/Honolulu', image: 'pngwing.com.png' },
 ];
 
 const timeZonesContainer = document.getElementById('timeZones');
@@ -48,10 +48,10 @@ function createTimeZoneBox({ label, timeZone, image }, index) {
   const heading = document.createElement('h2');
   heading.textContent = label;
   timeZoneElement.appendChild(heading);
-  const date = document.createElement('p');
   const day = document.createElement('p');
+  const date = document.createElement('p');
   const time = document.createElement('p');
-  timeZoneElement.append(date, day, time);
+  timeZoneElement.append(day, date, time);
   const imageElement = document.createElement('img');
   imageElement.src = image;
   imageElement.className = 'timeZoneImage';
@@ -81,11 +81,11 @@ function updateAllTimeZones() {
   timeZoneBoxes.forEach(box => {
     const label = box.querySelector('h2').textContent;
     const { timeZone } = timeZones.find(tz => tz.label === label);
-    const dateElement = box.querySelector('p');
     const dayElement = box.querySelectorAll('p')[1];
+    const dateElement = box.querySelector('p');
     const timeZoneElement = box.querySelectorAll('p')[2];
 
-    updateTimeDateAndDay(timeZoneElement, dateElement, dayElement, timeZone);
+    updateTimeDateAndDay(timeZoneElement, dayElement, dateElement, timeZone);
   });
 }
 
