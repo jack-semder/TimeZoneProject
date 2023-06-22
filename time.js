@@ -59,7 +59,7 @@ function createTimeZoneBox({ label, timeZone, image }, index) {
   timeZoneElement.classList.add(index % 2 === 0 ? 'even' : 'odd');
 
   const currentTime = updateTimeDateAndDay(time, date, day, timeZone);
-  if (currentTime >= 7 && currentTime < 16) {
+  if (currentTime >= 7 && currentTime < 17) {
     timeZoneElement.style.backgroundColor = "#fff3ed";
     timeZoneElement.style.color = "black";
   } else {
