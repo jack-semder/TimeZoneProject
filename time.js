@@ -5,8 +5,8 @@ const timeZones = [
   { label: 'New York', timeZone: 'America/New_York', image: 'pngwing.com.png' },
   { label: 'Islamabad', timeZone: 'Asia/Karachi', image: 'pngwing.com(1).png' },
   { label: 'London', timeZone: 'Europe/London', image: 'pngwing.com(2).png' },
-  { label: 'India', timeZone: 'Asia/Kolkata', image: 'pngwing.com(3).png' },
-  { label: 'Chicago', timeZone: 'America/Chicago', image: 'pngwing.com.png' },
+  { label: 'New Delhi', timeZone: 'Asia/Kolkata', image: 'pngwing.com(3).png' },
+  { label: 'Auckland', timeZone: 'Pacific/Auckland', image: 'pngwing.com (1).png' },
   { label: 'Berlin', timeZone: 'Europe/Berlin', image: 'pngwing.com(5).png' },
   { label: 'Paris', timeZone: 'Europe/Paris', image: 'pngwing.com(6).png' },
 ];
@@ -16,6 +16,9 @@ const timeZonesContainer = document.getElementById('timeZones');
 // Update the time, date, and day function
 function updateTimeDateAndDay(timeElement, dateElement, dayElement, timeZone) {
   const now = new Date();
+  //Testing with five minutes into future
+    //const currentTime = new Date();
+    //const now = new Date(currentTime.getTime() + 5 * 60000);
   const timeOptions = {
     timeZone: timeZone,
     hour12: true,
@@ -58,14 +61,6 @@ function createTimeZoneBox({ label, timeZone, image }, index) {
   timeZoneElement.appendChild(imageElement);
   timeZoneElement.classList.add(index % 2 === 0 ? 'even' : 'odd');
 
-  const currentTime = updateTimeDateAndDay(time, date, day, timeZone);
-  if (currentTime >= 7 && currentTime < 17) {
-    timeZoneElement.style.backgroundColor = "#fff3ed";
-    timeZoneElement.style.color = "black";
-  } else {
-    timeZoneElement.style.backgroundColor = "#2B3A55";
-    timeZoneElement.style.color = "white";
-  }
   return timeZoneElement;
 }
 
@@ -85,7 +80,14 @@ function updateAllTimeZones() {
     const dateElement = box.querySelector('p');
     const timeZoneElement = box.querySelectorAll('p')[2];
 
-    updateTimeDateAndDay(timeZoneElement, dayElement, dateElement, timeZone);
+    const currentTime = updateTimeDateAndDay(timeZoneElement, dateElement, dayElement, timeZone);
+    if (currentTime >= 7 && currentTime < 16) {
+      box.style.backgroundColor = "#fff3ed";
+      box.style.color = "black";
+    } else {
+      box.style.backgroundColor = "#2B3A55";
+      box.style.color = "white";
+    }
   });
 }
 
