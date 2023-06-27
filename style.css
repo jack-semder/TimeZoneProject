@@ -73,3 +73,11 @@ body {
   .timeZoneBox p + p {
     margin-top: 5px; /* Add some top margin to all paragraphs that are immediately following another paragraph */
   }
+
+  .timeZoneTimeImage {
+    width: 50px; /* Adjust the width as per your preference */
+    position: absolute;
+    bottom: 10px; /* Adjust the vertical position as per your preference */
+    left: 15px; /* Adjust the horizontal position as per your preference */
+  }
+  

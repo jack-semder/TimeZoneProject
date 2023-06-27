@@ -72,16 +72,37 @@ timeZones.forEach((timeZone, index) => {
 
 function updateAllTimeZones() {
   const timeZoneBoxes = document.querySelectorAll('.timeZoneBox');
-  
+
   timeZoneBoxes.forEach(box => {
     const label = box.querySelector('h2').textContent;
-    const { timeZone } = timeZones.find(tz => tz.label === label);
+    const { timeZone, image } = timeZones.find(tz => tz.label === label);
     const dayElement = box.querySelectorAll('p')[1];
     const dateElement = box.querySelector('p');
     const timeZoneElement = box.querySelectorAll('p')[2];
 
     const currentTime = updateTimeDateAndDay(timeZoneElement, dateElement, dayElement, timeZone);
-    if (currentTime >= 7 && currentTime < 16) {
+    const hour = parseInt(currentTime.split(':')[0]);
+
+    // Add "sun" or "moon" image based on the time
+    let timeImage;
+    if (hour >= 7 && hour < 17) {
+      timeImage = 'sun.png';
+    } else {
+      timeImage = 'moon .png';
+    }
+
+    // Check if the image element already exists
+    const existingImageElement = box.querySelector('.timeZoneTimeImage');
+    if (existingImageElement) {
+      existingImageElement.src = timeImage;
+    } else {
+      const imageElement = document.createElement('img');
+      imageElement.src = timeImage;
+      imageElement.className = 'timeZoneTimeImage';
+      box.appendChild(imageElement);
+    }
+
+    if (hour >= 7 && hour < 17) {
       box.style.backgroundColor = "#fff3ed";
       box.style.color = "black";
     } else {
@@ -90,6 +111,7 @@ function updateAllTimeZones() {
     }
   });
 }
+
 
 // Schedule periodic updates every second
 setInterval(updateAllTimeZones, 1000);
