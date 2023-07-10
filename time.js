@@ -11,6 +11,8 @@ const timeZones = [
   { label: 'Paris', timeZone: 'Europe/Paris', image: 'pngwing.com(6).png' },
 ];
 
+const API_KEY = "eacaf21068d283c7ad81441fd65f3124"
+
 const timeZonesContainer = document.getElementById('timeZones');
 
 // Update the time, date, and day function
@@ -83,21 +85,32 @@ function updateAllTimeZones() {
     const currentTime = updateTimeDateAndDay(timeZoneElement, dateElement, dayElement, timeZone);
     const hour = parseInt(currentTime.split(':')[0]);
 
-    // Add "sun" or "moon" image based on the time
-    let timeImage;
-    if (hour >= 7 && hour < 17) {
-      timeImage = 'sun.png';
-    } else {
-      timeImage = 'moon .png';
-    }
+    const lat = 37.7749; // Replace with the desired latitude
+    const lon = -122.4194; // Replace with the desired longitude
+  
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
+  
+    let weatherImage;
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        // Process the returned data
+        //weatherImage = data['weather']
+        //console.log('Data: ', data['weather'])
+        console.log(data['weather'][0]['icon'])
+      })
+      .catch(error => {
+        // Handle any errors
+        console.error('Error:', error);
+      });
 
     // Check if the image element already exists
     const existingImageElement = box.querySelector('.timeZoneTimeImage');
     if (existingImageElement) {
-      existingImageElement.src = timeImage;
+      existingImageElement.src = weatherImage;
     } else {
       const imageElement = document.createElement('img');
-      imageElement.src = timeImage;
+      imageElement.src = weatherImage;
       imageElement.className = 'timeZoneTimeImage';
       box.appendChild(imageElement);
     }
@@ -115,3 +128,4 @@ function updateAllTimeZones() {
 
 // Schedule periodic updates every second
 setInterval(updateAllTimeZones, 1000);
+//setInterval(updateWeather, 1000 * 60 * 60)
