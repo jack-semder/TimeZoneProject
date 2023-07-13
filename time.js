@@ -117,12 +117,14 @@ function updateWeatherImage() {
     const location = locations.find(location => location.label === label);
     if (location) {
       const { lat, lon } = location;
-      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=imperial`;
 
       fetch(url)
         .then(response => response.json())
         .then(data => {
+          console.log(data)
           const weatherIconCode = data.weather[0].icon;
+          const temperature = data.main.temp;
           const weatherIconUrl = `http://openweathermap.org/img/w/${weatherIconCode}.png`;
 
           const timeZoneBox = document.getElementById(label);
@@ -135,6 +137,16 @@ function updateWeatherImage() {
               imageElement.src = weatherIconUrl;
               imageElement.className = 'timeZoneTimeImage';
               timeZoneBox.appendChild(imageElement);
+            }
+
+            const temperatureElement = timeZoneBox.querySelector('.temperature');
+            if (temperatureElement) {
+              temperatureElement.textContent = `${temperature}°F`;
+            } else {
+              const temperatureElement = document.createElement('p');
+              temperatureElement.textContent = `${temperature}°F`;
+              temperatureElement.className = 'temperature';
+              timeZoneBox.appendChild(temperatureElement);
             }
           }
         })

@@ -81,3 +81,9 @@ body {
     left: 15px; /* Adjust the horizontal position as per your preference */
   }
   
+  .temperature {
+    /* background-color: red; */
+    padding-right: 230px;
+    font-size: xx-large;
+    /* color: #F1C93B; */
+  }
