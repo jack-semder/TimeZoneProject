@@ -124,7 +124,11 @@ function updateWeatherImage() {
         .then(data => {
           console.log(data)
           const weatherIconCode = data.weather[0].icon;
+<<<<<<< Updated upstream
           const temperature = data.main.temp;
+=======
+          const temperature = data.main.temp.toFixed(1);
+>>>>>>> Stashed changes
           const weatherIconUrl = `http://openweathermap.org/img/w/${weatherIconCode}.png`;
 
           const timeZoneBox = document.getElementById(label);

@@ -1,79 +1,43 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f1f1f1;
-  }
-  
-  h1 {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  #timeZones {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .timeZoneBox {
-    position: relative;
-    display: flex; /* Add flex display to the time zone elements */
-    flex-direction: column; /* Stack text and time vertically */
-    justify-content: flex-start; /* Align text and time to the right */
-    align-items: flex-end; /* Align text and time to the right */
-    width: 400px;
-    padding: 20px;
-    margin: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    font-size: 40px;
-  }
-  
-  .timeZoneBox h2 {
-    margin-top: 0;
-  }
-  
-  /* Background colors for time zones
-  .timeZoneBox:nth-child(even) {
-    background-color: #e6f7ff;
-  }
-  
-  .timeZoneBox:nth-child(odd) {
-    background-color: #fff3ed;
-  } */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f1f1f1;
+}
 
-  .timeZoneImage {
-    position: absolute; /* Position the image absolutely within the timeZone container */
-      top: 10px; /* Position the image at the top */
-      left: 15px; /* Position the image at the left */
-      width: 100px; /* Adjust the width to your desired size */
-      height: auto;
-  }
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
 
-  .timezone-image0 {
-    position: absolute; /* Add position absolute to the image */
-    top: 10px; /* Adjust the positioning based on your preference */
-    right: 10px; /* Adjust the positioning based on your preference */
-    width: 100px;
-    height: 100px;
-  }
+#timeZones {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
 
-  .timeZoneBox p {
-    margin: 0; /* Remove default margins from the paragraphs */
-  }
-  
-  .timeZoneBox p + p {
-    margin-top: 5px; /* Add some top margin to all paragraphs that are immediately following another paragraph */
-  }
+.timeZoneBox {
+  position: relative;
+  display: flex; /* Add flex display to the time zone elements */
+  flex-direction: column; /* Stack text and time vertically */
+  justify-content: flex-start; /* Align text and time to the right */
+  align-items: flex-end; /* Align text and time to the right */
+  width: 400px;
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  font-size: 40px;
+}
 
+<<<<<<< Updated upstream
   .timeZoneTimeImage {
     width: 50px; /* Adjust the width as per your preference */
     position: absolute;
@@ -87,3 +51,56 @@ body {
     font-size: large;
     /* color: #000000; */
   }
+=======
+.timeZoneBox h2 {
+  margin-top: 0;
+}
+
+/* Background colors for time zones
+.timeZoneBox:nth-child(even) {
+  background-color: #e6f7ff;
+}
+
+.timeZoneBox:nth-child(odd) {
+  background-color: #fff3ed;
+} */
+
+.timeZoneImage {
+  position: absolute; /* Position the image absolutely within the timeZone container */
+    top: 10px; /* Position the image at the top */
+    left: 15px; /* Position the image at the left */
+    width: 100px; /* Adjust the width to your desired size */
+    height: auto;
+}
+
+.timezone-image0 {
+  position: absolute; /* Add position absolute to the image */
+  top: 10px; /* Adjust the positioning based on your preference */
+  right: 10px; /* Adjust the positioning based on your preference */
+  width: 100px;
+  height: 100px;
+}
+
+.timeZoneBox p {
+  margin: 0; /* Remove default margins from the paragraphs */
+}
+
+.timeZoneBox p + p {
+  margin-top: 5px; /* Add some top margin to all paragraphs that are immediately following another paragraph */
+}
+
+.timeZoneTimeImage {
+  width: 50px; /* Adjust the width as per your preference */
+  position: absolute;
+  bottom: 10px; /* Adjust the vertical position as per your preference */
+  left: 15px; /* Adjust the horizontal position as per your preference */
+}
+
+.temperature {
+  /* background-color: red; */
+  padding-right: 350px;
+  padding-bottom: 35px;
+  font-size: large;
+  /* color: #000000; */
+}
+>>>>>>> Stashed changes
