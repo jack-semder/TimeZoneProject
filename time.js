@@ -124,11 +124,11 @@ function updateWeatherImage() {
         .then(data => {
           console.log(data)
           const weatherIconCode = data.weather[0].icon;
-<<<<<<< Updated upstream
-          const temperature = data.main.temp;
-=======
+
+          // const temperature = data.main.temp;
+
           const temperature = data.main.temp.toFixed(1);
->>>>>>> Stashed changes
+
           const weatherIconUrl = `http://openweathermap.org/img/w/${weatherIconCode}.png`;
 
           const timeZoneBox = document.getElementById(label);
@@ -174,3 +174,6 @@ setInterval(updateWeatherImage, 10000);
 // Schedule periodic updates every second
 setInterval(updateAllTimeZones, 1000);
 //setInterval(updateWeather, 1000 * 60 * 60) this updates ever hour
+
+
+// 8/10/2023 last update

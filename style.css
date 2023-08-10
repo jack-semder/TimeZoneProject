@@ -37,7 +37,6 @@ h1 {
   font-size: 40px;
 }
 
-<<<<<<< Updated upstream
   .timeZoneTimeImage {
     width: 50px; /* Adjust the width as per your preference */
     position: absolute;
@@ -51,7 +50,6 @@ h1 {
     font-size: large;
     /* color: #000000; */
   }
-=======
 .timeZoneBox h2 {
   margin-top: 0;
 }
@@ -103,4 +101,3 @@ h1 {
   font-size: large;
   /* color: #000000; */
 }
->>>>>>> Stashed changes
